@@ -6,7 +6,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from hello import hello
+from hello import goodbye, hello
 
 
 def test_hello_prints_greeting(capsys):
@@ -14,3 +14,10 @@ def test_hello_prints_greeting(capsys):
     hello()
     captured = capsys.readouterr()
     assert captured.out == "Hello World!\n"
+
+
+def test_goodbye_prints_farewell(capsys):
+    """goodbye() should print the expected farewell."""
+    goodbye()
+    captured = capsys.readouterr()
+    assert captured.out == "Goodbye Codex!\n"
